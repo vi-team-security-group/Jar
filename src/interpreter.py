@@ -1,12 +1,16 @@
 class Interpreter:
     def __init__(self, ast):
         self.ast = ast
+<<<<<<< HEAD
         self.environment = {}
+=======
+>>>>>>> c07e21a (Обновена първа фаза + тест)
 
     def run(self):
         output = []
         for node in self.ast:
             if node[0] == "PRINT":
+<<<<<<< HEAD
                 value = self.evaluate(node[1])
                 output.append(f"Извеждане: {value}")
             elif node[0] == "RETURN":
@@ -45,3 +49,9 @@ if __name__ == "__main__":
 
     for step in result:
         print(step)
+=======
+                output.append(node[1])
+            elif node[0] == "RETURN":
+                output.append(f"Връща стойност: {node[1]}")
+        return output
+>>>>>>> c07e21a (Обновена първа фаза + тест)

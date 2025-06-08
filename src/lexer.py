@@ -1,4 +1,5 @@
 import re
+<<<<<<< HEAD
 
 # === Описание на токени ===
 TOKEN_TYPES = [
@@ -52,3 +53,37 @@ if __name__ == "__main__":
     result = tokenize(code)
     for token in result:
         print(token)
+=======
+from typing import List
+
+class Token:
+    def __init__(self, type_: str, value: str):
+        self.type = type_
+        self.value = value
+
+    def __repr__(self):
+        return f"Token({self.type}, {repr(self.value)})"
+
+def tokenize(code: str) -> List[Token]:
+    token_specification = [
+        ("KEYWORD", r"\b(начало|край|дай|ако|иначе|върни)\b"),
+        ("NUMBER", r"\b\d+\b"),
+        ("STRING", r'"[^"]*"'),
+        ("IDENTIFIER", r"\b[а-яА-Я_][а-яА-Я0-9_]*\b"),
+        ("OPERATOR", r"[+\-*/=<>!]+"),
+        ("SKIP", r"[ \t\n]+"),
+        ("MISMATCH", r".")
+    ]
+    tok_regex = "|".join(f"(?P<{name}>{pattern})" for name, pattern in token_specification)
+    tokens = []
+    for match in re.finditer(tok_regex, code):
+        kind = match.lastgroup
+        value = match.group()
+        if kind == "SKIP":
+            continue
+        elif kind == "MISMATCH":
+            raise RuntimeError(f"Непознат символ: {value}")
+        else:
+            tokens.append(Token(kind, value))
+    return tokens
+>>>>>>> c07e21a (Обновена първа фаза + тест)
