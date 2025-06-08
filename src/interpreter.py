@@ -1,7 +1,7 @@
 class Interpreter:
     def __init__(self, ast):
         self.ast = ast
-<<<<<<< HEAD
+
         self.environment = {}
 =======
 >>>>>>> c07e21a (Обновена първа фаза + тест)
@@ -10,7 +10,6 @@ class Interpreter:
         output = []
         for node in self.ast:
             if node[0] == "PRINT":
-<<<<<<< HEAD
                 value = self.evaluate(node[1])
                 output.append(f"Извеждане: {value}")
             elif node[0] == "RETURN":

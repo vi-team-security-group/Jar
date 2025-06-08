@@ -1,5 +1,4 @@
 import re
-<<<<<<< HEAD
 
 # === Описание на токени ===
 TOKEN_TYPES = [
