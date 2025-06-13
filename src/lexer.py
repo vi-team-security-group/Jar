@@ -1,4 +1,5 @@
 import re
+from typing import List
 
 # === Описание на токени ===
 TOKEN_TYPES = [
@@ -52,8 +53,8 @@ if __name__ == "__main__":
     result = tokenize(code)
     for token in result:
         print(token)
-=======
-from typing import List
+
+
 
 class Token:
     def __init__(self, type_: str, value: str):
@@ -85,4 +86,3 @@ def tokenize(code: str) -> List[Token]:
         else:
             tokens.append(Token(kind, value))
     return tokens
->>>>>>> c07e21a (Обновена първа фаза + тест)

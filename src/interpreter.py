@@ -3,8 +3,6 @@ class Interpreter:
         self.ast = ast
 
         self.environment = {}
-=======
->>>>>>> c07e21a (Обновена първа фаза + тест)
 
     def run(self):
         output = []
@@ -29,6 +27,7 @@ class Interpreter:
         else:
             return value
 
+
 # ======= Пример за тестване ==========
 if __name__ == "__main__":
     from parser import simple_tokenize, Parser
@@ -48,9 +47,9 @@ if __name__ == "__main__":
 
     for step in result:
         print(step)
-=======
-                output.append(node[1])
-            elif node[0] == "RETURN":
-                output.append(f"Връща стойност: {node[1]}")
-        return output
->>>>>>> c07e21a (Обновена първа фаза + тест)
+
+        #         output.append(node[1])
+        #     elif node[0] == "RETURN":
+        #         output.append(f"Връща стойност: {node[1]}")
+        # return output
+

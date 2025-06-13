@@ -1,5 +1,8 @@
 import re
 from typing import List, Tuple
+from typing import List, Tuple
+from lexer import Token
+
 
 # ===== Token клас =====
 class Token:
@@ -9,6 +12,7 @@ class Token:
 
     def __repr__(self):
         return f"Token({self.type}, {repr(self.value)})"
+
 
 # ===== Минимален лексер за тестване на parser =====
 def simple_tokenize(code: str) -> List[Token]:
@@ -34,12 +38,8 @@ def simple_tokenize(code: str) -> List[Token]:
             tokens.append(Token(kind, value))
     return tokens
 
-# ===== Парсър за ЖАР код =====
-=======
-from typing import List, Tuple
-from lexer import Token
 
->>>>>>> c07e21a (Обновена първа фаза + тест)
+# ===== Парсър за ЖАР код =====
 class Parser:
     def __init__(self, tokens: List[Token]):
         self.tokens = tokens
@@ -53,16 +53,14 @@ class Parser:
         self.position += 1
         return token
 
-<<<<<<< HEAD
     def expect(self, type_: str) -> Token:
         token = self.consume()
         if token.type != type_:
             raise SyntaxError(f"Очаквах {type_}, но получих {token.type}")
         return token
-=======
+
     def match(self, type_: str) -> bool:
         return self.current().type == type_
->>>>>>> c07e21a (Обновена първа фаза + тест)
 
     def parse(self) -> List[Tuple[str, str]]:
         ast = []
@@ -83,7 +81,7 @@ class Parser:
         else:
             raise SyntaxError("Програмата трябва да започва с 'начало'")
         return ast
-<<<<<<< HEAD
+
 
 # ===== Тест пример =====
 if __name__ == "__main__":
@@ -99,5 +97,3 @@ if __name__ == "__main__":
     print("AST резултат:")
     for node in ast:
         print("  →", node)
-=======
->>>>>>> c07e21a (Обновена първа фаза + тест)
