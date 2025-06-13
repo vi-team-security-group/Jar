@@ -3,16 +3,6 @@ from typing import List, Tuple
 from lexer import Token
 
 
-# ===== Token клас =====
-class Token:
-    def __init__(self, type_: str, value: str):
-        self.type = type_
-        self.value = value
-
-    def __repr__(self):
-        return f"Token({self.type}, {repr(self.value)})"
-
-
 # ===== Минимален лексер за тестване на parser =====
 def simple_tokenize(code: str) -> List[Token]:
     token_specification = [
