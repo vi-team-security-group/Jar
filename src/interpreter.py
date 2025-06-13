@@ -47,9 +47,3 @@ if __name__ == "__main__":
 
     for step in result:
         print(step)
-
-        #         output.append(node[1])
-        #     elif node[0] == "RETURN":
-        #         output.append(f"Връща стойност: {node[1]}")
-        # return output
-

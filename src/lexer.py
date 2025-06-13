@@ -18,6 +18,7 @@ TOKEN_TYPES = [
 # === Генериране на обща regex формула ===
 TOKEN_REGEX = "|".join(f"(?P<{name}>{pattern})" for name, pattern in TOKEN_TYPES)
 
+
 # === Функция за токенизация с детайлна информация ===
 def tokenize(code):
     tokens = []
@@ -42,6 +43,7 @@ def tokenize(code):
             })
     return tokens
 
+
 # === Примерен ЖАР код ===
 if __name__ == "__main__":
     code = '''
@@ -55,7 +57,6 @@ if __name__ == "__main__":
         print(token)
 
 
-
 class Token:
     def __init__(self, type_: str, value: str):
         self.type = type_
@@ -63,6 +64,7 @@ class Token:
 
     def __repr__(self):
         return f"Token({self.type}, {repr(self.value)})"
+
 
 def tokenize(code: str) -> List[Token]:
     token_specification = [
