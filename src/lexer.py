@@ -1,4 +1,5 @@
 import re
+from typing import List
 
 # === Описание на токени ===
 TOKEN_TYPES = [
@@ -16,6 +17,7 @@ TOKEN_TYPES = [
 
 # === Генериране на обща regex формула ===
 TOKEN_REGEX = "|".join(f"(?P<{name}>{pattern})" for name, pattern in TOKEN_TYPES)
+
 
 # === Функция за токенизация с детайлна информация ===
 def tokenize(code):
@@ -41,6 +43,7 @@ def tokenize(code):
             })
     return tokens
 
+
 # === Примерен ЖАР код ===
 if __name__ == "__main__":
     code = '''
@@ -52,8 +55,7 @@ if __name__ == "__main__":
     result = tokenize(code)
     for token in result:
         print(token)
-=======
-from typing import List
+
 
 class Token:
     def __init__(self, type_: str, value: str):
@@ -62,6 +64,7 @@ class Token:
 
     def __repr__(self):
         return f"Token({self.type}, {repr(self.value)})"
+
 
 def tokenize(code: str) -> List[Token]:
     token_specification = [
@@ -85,4 +88,3 @@ def tokenize(code: str) -> List[Token]:
         else:
             tokens.append(Token(kind, value))
     return tokens
->>>>>>> c07e21a (Обновена първа фаза + тест)
